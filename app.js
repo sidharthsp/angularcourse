@@ -1,33 +1,37 @@
-(function(){
 
+(function () {
+'use strict';
 
-"use strict";
+angular.module('LunchCheck', [])
+.controller('LunchController', LunchController);
 
-angular.module("NameCalculator",[])
-.controller('NameCalculatorController', function($scope){
+LunchController.$inject = ['$scope'];
+function LunchController($scope) {
+  $scope.input = "";
+  $scope.Msg= "";
 
-$scope.name ="";
-$scope.tv= 0;
+  $scope.showMsg = function () {
+if ($scope.input==""){$scope.Msg= "Please Enter data first!!!";}
 
-$scope.displayN = function(){
-	var totalNameValue = calculateNumericForString($scope.name); //get the total value
-	$scope.tv= totalNameValue;
-};
+else{
 
-function calculateNumericForString(string) {
-    var totalStringValue = 0;
-    for (var i = 0; i < string.length; i++) {
-      totalStringValue += string.charCodeAt(i);
-    }
+if ($scope.input.split(",").length <= 3)
+	{
+		$scope.Msg= "	Enjoy!!";
+}
 
-    return totalStringValue;
-  }
-
-
-
-})
+else {$scope.Msg= "Too Much!!"}
 
 
 
+
+
+}
+
+  
+}
+
+
+}
 
 })();
