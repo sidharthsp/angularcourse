@@ -1,7 +1,8 @@
+
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Search Menu</title>
+    <title>Narrow Down Your Menu Choice</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
@@ -10,7 +11,7 @@
   </head>
 <body ng-app="NarrowItDownApp">
    <div class="container" ng-controller="NarrowItDownController as ctrl1">
-    <h1>Enter a keyword relating to a Menu Item</h1>
+    <h1>Narrow Down Your Chinese Menu Choice</h1>
 
     <div class="form-group">
       <input type="text" placeholder="search term" class="form-control"
@@ -18,11 +19,18 @@
     </div>
 
     <div class="form-group narrow-button">
-      <button class="btn btn-warning" ng-click="ctrl1.getMatchedMenuItems(ctrl1.searchTerm);">
+      <button class="btn btn-primary" ng-click="ctrl1.getMatchedMenuItems(ctrl1.searchTerm);">
         Narrow It Down For Me!</button>
     </div>
 
- 
+      <!-- <ul>
+        <li ng-repeat="elem in NarrowCtrl.found_items">
+          Name: {{ elem.name }}, Short name: {{ elem.short_name }}, Description: {{ elem.description }}
+          <button ng-click="NarrowCtrl.removeItem($index);"> Don't want this one!</button>
+        </li>
+      </ul> -->
+
+      <!-- <found-items></found-items> -->
 
       <found-items
         found="ctrl1.found"
