@@ -1,59 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <title>Shopping List Check Off</title>
+    <title>Search Menu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
     <link rel="stylesheet" href="styles/bootstrap.min.css">
-    <script type="text/javascript" src="angular.min.js"></script>
-    <script type="text/javascript " src="app.js"></script>
-    <style>
-      .emptyMessage {
-        font-weight: bold;
-        color: red;
-        font-size: 1.2em;
-      }
-      li {
-        margin-bottom: 7px;
-        font-size: 1.2em;
-      }
-      li > button {
-        margin-left: 6px;
-      }
-      button > span {
-        color: green;
-      }
-      h1 {background-color: teal;
-        color: white;
-        padding :20px;
-        border-radius: 15px;}
-    </style>
+    <link rel="stylesheet" href="styles/styles.css">
   </head>
-<body ng-app='ShoppingListCheckOff'>
-  <div class="container">
-  <h1>Shopping List Check Off</h1>
+<body ng-app="NarrowItDownApp">
+   <div class="container" ng-controller="NarrowItDownController as ctrl1">
+    <h1>Enter a keyword relating to a Menu Item</h1>
 
-  <div class="row">
-
-    <!-- To Buy List -->
-    <div class="col-md-6" ng-controller="ToBuyController as ctrl">
-     <h2>To Buy:</h2>
-     <ul>
-       <li ng-repeat="item in ctrl.tobuy">Buy {{item.quantity}} {{item.name}} <button class="btn btn-default" ng-click ="ctrl.buyItem($index);"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
-    
-     </ul>
-     <div class="emptyMessage" ng-if="ctrl.tobuy.length===0">Everything is bought!</div>
+    <div class="form-group">
+      <input type="text" placeholder="search term" class="form-control"
+      ng-model="ctrl1.searchTerm">
     </div>
 
-    <!-- Already Bought List -->
-    <div class="col-md-6" ng-controller='AlreadyBoughtController as ctrl1'>
-     <h2>Already Bought:</h2>
-     <ul>
-       <li ng-repeat="item in ctrl1.alreadybought">Bought  {{item.quantity}} {{item.name}}</li>
-     </ul>
-     <div class="emptyMessage" ng-if="ctrl1.alreadybought.length===0">Nothing bought yet.</div>
+    <div class="form-group narrow-button">
+      <button class="btn btn-warning" ng-click="ctrl1.getMatchedMenuItems(ctrl1.searchTerm);">
+        Narrow It Down For Me!</button>
     </div>
-  </div>
-</div>
+
+ 
+
+      <found-items
+        found="ctrl1.found"
+        on-remove="ctrl1.removeItem(index)">
+      </found-items>
+
+      <div ng-if="ctrl1.found.length == 0">{{ ctrl1.mssg }}</div>
+
+   </div>
 
 
 </body>
