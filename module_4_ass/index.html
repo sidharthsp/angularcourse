@@ -1,42 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Narrow Down Your Menu Choice</title>
+    <title>MenuApp</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="angular.min.js"></script>
-    <script src="app.js"></script>
+
     <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <script src="bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles/styles.css">
   </head>
-<body ng-app="NarrowItDownApp">
-   <div class="container" ng-controller="NarrowItDownController as ctrl1">
-    <h1>Narrow Down Your Chinese Menu Choice</h1>
+<body ng-app="MenuApp">
 
 
-<div class="form-group">
-  <input type="text" placeholder="search term" class="form-control"
-  ng-model="ctrl1.searchTerm">
-</div>
+<div class="container">
+  <div class="jumbotron bg-primary"> <h1 style='color:white;'>Our Restaurant</h1></div>
 
-<div class="form-group narrow-button">
-  <button class="btn btn-primary" ng-click="ctrl1.getMatchedMenuItems(ctrl1.searchTerm);">
-    Narrow It Down For Me!</button>
-</div>
+  <br>
+  <center><loading-spinner></loading-spinner></center>
+  <br>
+  <ui-view></ui-view>
+  <div>
 
 
 
 
-    <found-items
-      found="ctrl1.found"
-      on-remove="ctrl1.removeItem(index)">
-    </found-items>
 
 
 
-      <div ng-if="ctrl1.found.length == 0">{{ ctrl1.mssg }}</div>
 
-   </div>
 
+
+
+<!-- INCLUDING LIBRARIES -->
+  <script src="lib/angular.min.js"></script>
+  <script src="lib/angular-ui-router.min.js"></script>
+  <script src="lib/stateEvents.js"></script
+
+
+
+
+<!-- INCLUDING MODULES -->
+<script src="src/menu/menuapp.module.js"></script>
+<script src="src/data/data.module.js"></script>
+<script src="src/spinner/spinner.module.js"></script>
+
+
+<!-- INCLUDING ROUTES -->
+<script src="src/routes.js"></script>
+
+<!-- INCLUDING SERVICES -->
+<script src="src/data/menudata.service.js"></script>
+
+<!-- INCLUDING CONTROLLERS -->
+<script src="src/menu/controllers.js"></script>
+
+<!-- INCLUDING COMPONENTS -->
+<script src="src/menu/categories.component.js"></script>
+<script src="src/menu/items.component.js"></script>
+
+
+
+<script src="src/spinner/spinner.component.js"></script>
 
 </body>
 </html>
