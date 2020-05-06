@@ -1,0 +1,38 @@
+
+<div ng-controller='infocontroller as $ctrl'>
+
+<center><h1 ng-if="!($ctrl.status)">Sign Up first!! </h1></center>
+
+<div ng-if="$ctrl.status" class= "container">
+
+  <h3>
+    <strong> FirstName: </strong>{{$ctrl.user.fname}}<br>
+    <strong> LastName: </strong>{{$ctrl.user.lname}}
+    <br>
+    <strong> Email: </strong>{{$ctrl.user.mail}}<br>
+    <strong> Phone Number: </strong>{{$ctrl.user.phno}}
+  </h3>
+
+<h3><strong>Favourite Dish : </strong></h3>
+<div  class="menu-item-tile col-md-6">
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="menu-item-photo">
+        <div>{{$ctrl.user.val.short_name}}</div>
+        <img class="img-responsive" width="250" height="150" ng-src="https://shielded-hamlet-49173.herokuapp.com/images/{{$ctrl.user.val.short_name}}.jpg" alt="{{$ctrl.user.val.name}}">
+      </div>
+      <div class="menu-item-price">{{$ctrl.user.val.price_small | currency}}<span> {{$ctrl.user.val.small_portion_name}}</span> {{$ctrl.user.val.price_large | currency}} <span>{{$ctrl.user.val.large_portion_name}}</span></div>
+    </div>
+    <div class="menu-item-description col-sm-7">
+      <h3 class="menu-item-title">{{$ctrl.user.val.name}}</h3>
+      <p class="menu-item-details">{{$ctrl.user.val.description}}</p>
+    </div>
+  </div>
+  <hr class="visible-xs">
+</div>
+</div>
+
+
+
+
+</div>

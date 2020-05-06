@@ -3,22 +3,22 @@
   <head>
     <title>MenuApp</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <script src="lib/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="styles/bootstrap.min.css">
-    <script src="bootstrap.min.js"></script>
+    <script src="styles/bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles/styles.css">
   </head>
 <body ng-app="MenuApp">
 
+<loading-spinner></loading-spinner>
 
 <div class="container">
   <div class="jumbotron bg-primary"> <h1 style='color:white;'>Our Restaurant</h1></div>
 
-  <br>
-  <center><loading-spinner></loading-spinner></center>
-  <br>
+
   <ui-view></ui-view>
   <div>
+
 
 
 
