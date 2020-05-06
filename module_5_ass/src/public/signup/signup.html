@@ -32,7 +32,7 @@
 <div class="form-group">
     <label class="control-label col-sm-2" for="email">Phone Number : </label>
       <div class="col-sm-10">
-        <input type="tel" name="phno" ng-model="formCtrl.user.phno"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required><br>
+        <input type="tel" name="phno" ng-model="formCtrl.user.phno" placeholder="FORMAT : ###-###-###" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required><br>
         <span ng-if="signupform.phno.$invalid && signupform.phno.$touched">*Phone Number should be in the format ###-###-### *</span><br>
 </div>
 </div>
