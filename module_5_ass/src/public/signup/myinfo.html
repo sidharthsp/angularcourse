@@ -1,7 +1,7 @@
 
 <div ng-controller='infocontroller as $ctrl'>
 
-<center><h1 ng-if="!($ctrl.status)">Sign Up first!! </h1></center>
+<center><h1 ng-if="!($ctrl.status)">Not signed up yet.<a ui-sref="public.signup">Sign Up Now!!</a> </h1></center>
 
 <div ng-if="$ctrl.status" class= "container">
 
